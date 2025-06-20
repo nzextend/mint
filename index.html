@@ -4,107 +4,126 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>stressmint</title>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Rubik:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --mint: #aaffdd;
-      --bg-dark: #0a0a0a;
-      --glass: rgba(255, 255, 255, 0.05);
-      --border: rgba(255, 255, 255, 0.15);
-    }
-
-    * {
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
+      background: #0a0a0a;
       font-family: 'Rubik', sans-serif;
-      background: var(--bg-dark);
-      color: white;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      color: #fff;
       overflow: hidden;
-      background-image: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
     }
 
-    .glass-card {
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      background: var(--glass);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 40px;
-      text-align: center;
-      max-width: 500px;
-      width: 90%;
-      box-shadow: 0 0 30px rgba(0, 255, 200, 0.1);
-      animation: fadeIn 1.5s ease;
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 60px;
+      height: 100vh;
+      background: url('https://i.imgur.com/7B1D8QH.png') no-repeat center center / cover;
+      position: relative;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+    .noise {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: 1;
     }
 
-    .logo {
-      font-size: 3rem;
-      font-weight: 600;
-      color: var(--mint);
-      text-shadow: 0 0 10px var(--mint);
-      margin-bottom: 20px;
+    .text-block {
+      z-index: 2;
+      max-width: 600px;
     }
 
-    .description {
+    .text-block h1 {
+      font-size: 3.5rem;
+      line-height: 1.1;
+      font-family: 'Anton', sans-serif;
+      text-transform: uppercase;
+    }
+
+    .highlight {
+      color: #ffffff;
+      background: linear-gradient(to right, #ff00ff, #7d00c4);
+      padding: 0 5px;
+      clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+      display: inline-block;
+      transform: rotate(-1.5deg);
+      margin-left: 8px;
+    }
+
+    .sub {
+      margin-top: 20px;
       font-size: 1.1rem;
-      color: #ccc;
-      margin-bottom: 30px;
+      color: #cccccc;
+    }
+
+    .buttons {
+      margin-top: 40px;
     }
 
     .btn {
-      display: inline-block;
-      margin: 10px;
-      padding: 14px 24px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 10px;
       font-weight: bold;
-      font-size: 1rem;
-      color: #000;
-      background: linear-gradient(135deg, #77ffd5, #22c1c3);
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
+      margin-right: 16px;
       text-decoration: none;
-      box-shadow: 0 0 15px #22c1c388;
-      transition: 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
     }
 
     .btn:hover {
-      box-shadow: 0 0 20px #22c1c3cc;
-      transform: translateY(-2px);
+      background: #7d00c4;
+      transform: scale(1.05);
+    }
+
+    .person {
+      z-index: 2;
+      max-height: 80vh;
     }
 
     footer {
       position: absolute;
       bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
       font-size: 0.9rem;
       opacity: 0.3;
-      color: #aaa;
+      z-index: 2;
     }
   </style>
 </head>
 <body>
-  <div class="glass-card">
-    <div class="logo">stressmint</div>
-    <div class="description">
-      сервер, где можно выдохнуть. тут не судят. тут спокойно.
-      тут ты настоящий. присоединяйся — будь собой.
+  <div class="hero">
+    <div class="noise"></div>
+
+    <div class="text-block">
+      <h1>
+        ТЫ УСТАЛ
+        <span class="highlight">ПРИСОЕДИНЯЙСЯ.</span>
+      </h1>
+      <div class="sub">
+        Здесь не надо притворяться. Здесь ты не один.  
+        <br>stressmint — это не сервер, это состояние.
+      </div>
+      <div class="buttons">
+        <a href="https://discord.gg/твоя-ссылка" class="btn">Залететь</a>
+        <a href="#about" class="btn">О нас</a>
+      </div>
     </div>
-    <a href="https://discord.gg/твоя-ссылка" class="btn">Войти в Discord</a>
-    <a href="#about" class="btn">О нас</a>
+
+    <img src="https://i.imgur.com/sX9KEPR.png" alt="Твой персонаж" class="person" />
   </div>
-  <footer>© 2025 stressmint</footer>
+
+  <footer>© 2025 stressmint — живи как хочешь</footer>
 </body>
 </html>
 
