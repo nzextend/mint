@@ -6,109 +6,105 @@
   <title>stressmint</title>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --mint: #aaffdd;
+      --bg-dark: #0a0a0a;
+      --glass: rgba(255, 255, 255, 0.05);
+      --border: rgba(255, 255, 255, 0.15);
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    html, body {
-      height: 100%;
-      background: #0f0f0f;
+    body {
       font-family: 'Rubik', sans-serif;
-      color: #e5ffe5;
-      overflow: hidden;
-    }
-
-    .glow {
-      text-shadow: 0 0 8px #88ffcc, 0 0 16px #66ffcc, 0 0 24px #55ffbb;
-    }
-
-    .container {
+      background: var(--bg-dark);
+      color: white;
+      min-height: 100vh;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100%;
+      overflow: hidden;
+      background-image: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
+    }
+
+    .glass-card {
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px;
       text-align: center;
-      padding: 20px;
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    h1 {
-      font-size: 4rem;
-      font-weight: 600;
-      margin-bottom: 10px;
-      color: #aaffdd;
-    }
-
-    p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      color: #d6f8e5;
-      opacity: 0.9;
-    }
-
-    .btn {
-      margin-top: 30px;
-      padding: 14px 28px;
-      font-size: 1rem;
-      background: linear-gradient(135deg, #33ffcc, #11aa88);
-      color: #000;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      font-weight: 600;
-      box-shadow: 0 0 10px #33ffcc88;
-      transition: all 0.3s ease-in-out;
-    }
-
-    .btn:hover {
-      background: linear-gradient(135deg, #55ffdd, #22cc99);
-      box-shadow: 0 0 20px #33ffcccc;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 0 30px rgba(0, 255, 200, 0.1);
+      animation: fadeIn 1.5s ease;
     }
 
     @keyframes fadeIn {
-      0% {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
     }
 
-    .mint-smoke {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(ellipse at center, #00ffaa22 0%, transparent 70%);
-      filter: blur(80px);
-      animation: pulse 6s infinite alternate ease-in-out;
-      pointer-events: none;
+    .logo {
+      font-size: 3rem;
+      font-weight: 600;
+      color: var(--mint);
+      text-shadow: 0 0 10px var(--mint);
+      margin-bottom: 20px;
     }
 
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 0.4; }
-      100% { transform: scale(1.2); opacity: 0.7; }
+    .description {
+      font-size: 1.1rem;
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 14px 24px;
+      font-weight: bold;
+      font-size: 1rem;
+      color: #000;
+      background: linear-gradient(135deg, #77ffd5, #22c1c3);
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 0 15px #22c1c388;
+      transition: 0.2s ease-in-out;
+    }
+
+    .btn:hover {
+      box-shadow: 0 0 20px #22c1c3cc;
+      transform: translateY(-2px);
     }
 
     footer {
       position: absolute;
       bottom: 20px;
       font-size: 0.9rem;
-      opacity: 0.4;
+      opacity: 0.3;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
-  <div class="mint-smoke"></div>
-  <div class="container">
-    <h1 class="glow">stressmint</h1>
-    <p class="glow">Сервер, где можно выдохнуть. Атмосфера уюта, стиля и настоящей свободы. Присоединяйся — просто будь собой.</p>
-    <a href="https://discord.gg/твоя-ссылка" class="btn">Зайти на сервер</a>
+  <div class="glass-card">
+    <div class="logo">stressmint</div>
+    <div class="description">
+      сервер, где можно выдохнуть. тут не судят. тут спокойно.
+      тут ты настоящий. присоединяйся — будь собой.
+    </div>
+    <a href="https://discord.gg/твоя-ссылка" class="btn">Войти в Discord</a>
+    <a href="#about" class="btn">О нас</a>
   </div>
   <footer>© 2025 stressmint</footer>
 </body>
 </html>
+
